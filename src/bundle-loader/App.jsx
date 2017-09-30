@@ -7,8 +7,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      page1: false,
-      page2: false,
+      comp1: false,
+      comp2: false,
     };
 
     this.toggle = this.toggle.bind(this);
@@ -19,19 +19,20 @@ export default class App extends Component {
   }
 
   render() {
-    const { page1, page2 } = this.state;
+    const { comp1, comp2 } = this.state;
 
     return (
-      <div>
-        <h1>bundle-loader example</h1>
-        <div>
-          <button type="button" onClick={() => this.toggle('page1')}>toggle page 1</button>
-          {page1 && <MultiComp name="comp1" />}
-        </div>
-        <hr/>
-        <div>
-          <button type="button" onClick={() => this.toggle('page2')}>toggle page 2</button>
-          {page2 && <MultiComp name="comp2" />}
+      <div className="container">
+        <hr />
+        <div className="row">
+          <div className="col-md-6">
+            <button type="button" className="btn btn-default" onClick={() => this.toggle('comp1')}>toggle comp 1</button>
+            {comp1 && <MultiComp name="comp1" klass="klass1" />}
+          </div>
+          <div className="col-md-6">
+            <button type="button" className="btn btn-default" onClick={() => this.toggle('comp2')}>toggle comp 2</button>
+            {comp2 && <MultiComp name="comp2" klass="klass2" />}
+          </div>
         </div>
       </div>
     );

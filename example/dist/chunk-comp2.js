@@ -17,11 +17,11 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Page() {
+function Page(props) {
   return _react2.default.createElement(
     'h3',
-    null,
-    'Hello Comp 2'
+    { className: props.klass },
+    'Hello Lazy Comp 2'
   );
 }
 

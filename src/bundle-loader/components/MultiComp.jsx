@@ -23,7 +23,7 @@ export default class MultiComp extends Component {
     if (lazy) {
       lazy((loaded) => {
         const Component = loaded.default;
-        this.setState({ component: <Component /> })
+        this.setState({ component: <Component {...this.props} /> })
       })
     }
   }

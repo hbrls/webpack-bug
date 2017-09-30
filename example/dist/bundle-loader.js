@@ -200,8 +200,8 @@ var App = function (_Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      page1: false,
-      page2: false
+      comp1: false,
+      comp2: false
     };
 
     _this.toggle = _this.toggle.bind(_this);
@@ -219,42 +219,41 @@ var App = function (_Component) {
       var _this2 = this;
 
       var _state = this.state,
-          page1 = _state.page1,
-          page2 = _state.page2;
+          comp1 = _state.comp1,
+          comp2 = _state.comp2;
 
 
       return _react2.default.createElement(
         'div',
-        null,
-        _react2.default.createElement(
-          'h1',
-          null,
-          'bundle-loader example'
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'button',
-            { type: 'button', onClick: function onClick() {
-                return _this2.toggle('page1');
-              } },
-            'toggle page 1'
-          ),
-          page1 && _react2.default.createElement(_MultiComp2.default, { name: 'comp1' })
-        ),
+        { className: 'container' },
         _react2.default.createElement('hr', null),
         _react2.default.createElement(
           'div',
-          null,
+          { className: 'row' },
           _react2.default.createElement(
-            'button',
-            { type: 'button', onClick: function onClick() {
-                return _this2.toggle('page2');
-              } },
-            'toggle page 2'
+            'div',
+            { className: 'col-md-6' },
+            _react2.default.createElement(
+              'button',
+              { type: 'button', className: 'btn btn-default', onClick: function onClick() {
+                  return _this2.toggle('comp1');
+                } },
+              'toggle comp 1'
+            ),
+            comp1 && _react2.default.createElement(_MultiComp2.default, { name: 'comp1', klass: 'klass1' })
           ),
-          page2 && _react2.default.createElement(_MultiComp2.default, { name: 'comp2' })
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-6' },
+            _react2.default.createElement(
+              'button',
+              { type: 'button', className: 'btn btn-default', onClick: function onClick() {
+                  return _this2.toggle('comp2');
+                } },
+              'toggle comp 2'
+            ),
+            comp2 && _react2.default.createElement(_MultiComp2.default, { name: 'comp2', klass: 'klass2' })
+          )
         )
       );
     }
@@ -332,7 +331,7 @@ var MultiComp = function (_Component) {
       if (lazy) {
         lazy(function (loaded) {
           var Component = loaded.default;
-          _this2.setState({ component: _react2.default.createElement(Component, null) });
+          _this2.setState({ component: _react2.default.createElement(Component, _this2.props) });
         });
       }
     }
