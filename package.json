@@ -17,6 +17,7 @@
     "bundle-loader": "0.5.5",
     "react": "16.0.0",
     "react-dom": "16.0.0",
+    "vanilla.js": "0.1.0",
     "webpack": "2.7.0"
   }
 }

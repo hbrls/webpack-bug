@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 20:
+/***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19,9 +19,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Comp4(props) {
   return _react2.default.createElement(
-    "div",
-    { className: "alert alert-danger" },
-    "Enter a valid email address"
+    'div',
+    { className: 'alert alert-danger' },
+    props.message || 'props.message'
   );
 }
 

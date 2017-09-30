@@ -171,11 +171,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _get = __webpack_require__(16);
+
+var _get2 = _interopRequireDefault(_get);
 
 var _MultiComp = __webpack_require__(4);
 
@@ -202,11 +208,13 @@ var App = function (_Component) {
     _this.state = {
       comp1: false,
       comp2: false,
-      random: ''
+      random: '',
+      ajax: []
     };
 
     _this.toggle = _this.toggle.bind(_this);
     _this.load = _this.load.bind(_this);
+    _this.ajax = _this.ajax.bind(_this);
     return _this;
   }
 
@@ -222,14 +230,27 @@ var App = function (_Component) {
       this.setState({ random: random });
     }
   }, {
+    key: 'ajax',
+    value: function ajax() {
+      var _this2 = this;
+
+      (0, _get2.default)('/api/components.json').then(function (_ref) {
+        var data = _ref.data;
+        var components = data.components;
+
+        _this2.setState({ ajax: components });
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _state = this.state,
           comp1 = _state.comp1,
           comp2 = _state.comp2,
-          random = _state.random;
+          random = _state.random,
+          ajax = _state.ajax;
 
 
       return _react2.default.createElement(
@@ -245,7 +266,7 @@ var App = function (_Component) {
             _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-default', onClick: function onClick() {
-                  return _this2.toggle('comp1');
+                  return _this3.toggle('comp1');
                 } },
               'toggle comp 1'
             ),
@@ -258,7 +279,7 @@ var App = function (_Component) {
             _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-default', onClick: function onClick() {
-                  return _this2.toggle('comp2');
+                  return _this3.toggle('comp2');
                 } },
               'toggle comp 2'
             ),
@@ -276,12 +297,26 @@ var App = function (_Component) {
             _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-default', onClick: function onClick() {
-                  return _this2.load();
+                  return _this3.load();
                 } },
               'load random: ',
               random
             ),
             random && _react2.default.createElement(_MultiComp2.default, { name: random })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-6 example' },
+            _react2.default.createElement(
+              'button',
+              { type: 'button', className: 'btn btn-default', onClick: function onClick() {
+                  return _this3.ajax();
+                } },
+              'ajax'
+            ),
+            ajax.map(function (a, i) {
+              return _react2.default.createElement(_MultiComp2.default, _extends({}, a, { key: i }));
+            })
           )
         )
       );
@@ -457,7 +492,7 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(9).then((function(require) {
-		cb(__webpack_require__(16));
+		cb(__webpack_require__(17));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -467,7 +502,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(8).then((function(require) {
-		cb(__webpack_require__(17));
+		cb(__webpack_require__(18));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -477,7 +512,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(7).then((function(require) {
-		cb(__webpack_require__(18));
+		cb(__webpack_require__(19));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -487,7 +522,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(6).then((function(require) {
-		cb(__webpack_require__(19));
+		cb(__webpack_require__(20));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -497,7 +532,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(5).then((function(require) {
-		cb(__webpack_require__(20));
+		cb(__webpack_require__(21));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -507,7 +542,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(4).then((function(require) {
-		cb(__webpack_require__(21));
+		cb(__webpack_require__(22));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -517,7 +552,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(3).then((function(require) {
-		cb(__webpack_require__(22));
+		cb(__webpack_require__(23));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -527,7 +562,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(2).then((function(require) {
-		cb(__webpack_require__(23));
+		cb(__webpack_require__(24));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -537,7 +572,7 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(1).then((function(require) {
-		cb(__webpack_require__(24));
+		cb(__webpack_require__(25));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -547,9 +582,49 @@ module.exports = function(cb) {
 
 module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(0).then((function(require) {
-		cb(__webpack_require__(25));
+		cb(__webpack_require__(26));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports) {
+
+module.exports = function $get(endpoint, query) {
+  query = query || {};
+
+  var esc = encodeURIComponent;
+
+  var keys = Object.keys(query);
+
+  var url = endpoint;
+  if (keys.length > 0) {
+    url += '?' + keys.map(function (k) {
+      var value = query[k];
+      if (value == null || value == '') {
+        return '';
+      } else {
+        return esc(k) + '=' + esc(value);
+      }
+    }).join('&');
+  }
+
+  return fetch(url, {
+    method: 'GET',
+    headers: {
+      'Accept': 'application/json',
+    },
+    credentials: 'same-origin',
+  })
+  .then(function (resp) {
+    if (resp.status >= 200 && resp.status < 300) {
+      return resp.json().then(function (j) { return Promise.resolve(j); });
+    } else {
+      return resp.json().then(function (j) { return Promise.reject(j); });
+    }
+  });
+}
+
 
 /***/ })
 /******/ ]);

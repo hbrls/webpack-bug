@@ -1,0 +1,12 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "components": [
+      { "name": "comp1", "klass": "klass1" },
+      { "name": "comp2", "klass": "klass2" },
+      { "name": "comp3" },
+      { "name": "comp4", "message": "400 BAD REQUEST" }
+    ]
+  }
+}
