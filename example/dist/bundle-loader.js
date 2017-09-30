@@ -29,7 +29,7 @@
 /******/
 /******/ 	// objects to store loaded and loading chunks
 /******/ 	var installedChunks = {
-/******/ 		2: 0
+/******/ 		10: 0
 /******/ 	};
 /******/
 /******/ 	// The require function
@@ -86,7 +86,7 @@
 /******/ 		if (__webpack_require__.nc) {
 /******/ 			script.setAttribute("nonce", __webpack_require__.nc);
 /******/ 		}
-/******/ 		script.src = __webpack_require__.p + "chunk-" + ({"0":"comp2","1":"comp1"}[chunkId]||chunkId) + ".js";
+/******/ 		script.src = __webpack_require__.p + "chunk-" + ({"0":"comp9","1":"comp8","2":"comp7","3":"comp6","4":"comp5","5":"comp4","6":"comp3","7":"comp2","8":"comp1","9":"comp0"}[chunkId]||chunkId) + ".js";
 /******/ 		var timeout = setTimeout(onScriptComplete, 120000);
 /******/ 		script.onerror = script.onload = onScriptComplete;
 /******/ 		function onScriptComplete() {
@@ -201,10 +201,12 @@ var App = function (_Component) {
 
     _this.state = {
       comp1: false,
-      comp2: false
+      comp2: false,
+      random: ''
     };
 
     _this.toggle = _this.toggle.bind(_this);
+    _this.load = _this.load.bind(_this);
     return _this;
   }
 
@@ -214,13 +216,20 @@ var App = function (_Component) {
       this.setState(_defineProperty({}, key, !this.state[key]));
     }
   }, {
+    key: 'load',
+    value: function load() {
+      var random = 'comp' + Math.floor(Math.random() * 10);
+      this.setState({ random: random });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
 
       var _state = this.state,
           comp1 = _state.comp1,
-          comp2 = _state.comp2;
+          comp2 = _state.comp2,
+          random = _state.random;
 
 
       return _react2.default.createElement(
@@ -232,7 +241,7 @@ var App = function (_Component) {
           { className: 'row' },
           _react2.default.createElement(
             'div',
-            { className: 'col-md-6' },
+            { className: 'col-md-6 example' },
             _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-default', onClick: function onClick() {
@@ -240,11 +249,12 @@ var App = function (_Component) {
                 } },
               'toggle comp 1'
             ),
+            _react2.default.createElement('br', null),
             comp1 && _react2.default.createElement(_MultiComp2.default, { name: 'comp1', klass: 'klass1' })
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-6' },
+            { className: 'col-md-6 example' },
             _react2.default.createElement(
               'button',
               { type: 'button', className: 'btn btn-default', onClick: function onClick() {
@@ -252,7 +262,26 @@ var App = function (_Component) {
                 } },
               'toggle comp 2'
             ),
+            _react2.default.createElement('br', null),
             comp2 && _react2.default.createElement(_MultiComp2.default, { name: 'comp2', klass: 'klass2' })
+          )
+        ),
+        _react2.default.createElement('hr', null),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-md-6 example' },
+            _react2.default.createElement(
+              'button',
+              { type: 'button', className: 'btn btn-default', onClick: function onClick() {
+                  return _this2.load();
+                } },
+              'load random: ',
+              random
+            ),
+            random && _react2.default.createElement(_MultiComp2.default, { name: random })
           )
         )
       );
@@ -295,6 +324,38 @@ var _Comp3 = __webpack_require__(7);
 
 var _Comp4 = _interopRequireDefault(_Comp3);
 
+var _Comp5 = __webpack_require__(8);
+
+var _Comp6 = _interopRequireDefault(_Comp5);
+
+var _Comp7 = __webpack_require__(9);
+
+var _Comp8 = _interopRequireDefault(_Comp7);
+
+var _Comp9 = __webpack_require__(10);
+
+var _Comp10 = _interopRequireDefault(_Comp9);
+
+var _Comp11 = __webpack_require__(11);
+
+var _Comp12 = _interopRequireDefault(_Comp11);
+
+var _Comp13 = __webpack_require__(12);
+
+var _Comp14 = _interopRequireDefault(_Comp13);
+
+var _Comp15 = __webpack_require__(13);
+
+var _Comp16 = _interopRequireDefault(_Comp15);
+
+var _Comp17 = __webpack_require__(14);
+
+var _Comp18 = _interopRequireDefault(_Comp17);
+
+var _Comp19 = __webpack_require__(15);
+
+var _Comp20 = _interopRequireDefault(_Comp19);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -304,8 +365,16 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var LAZY_COMPONENTS = {
-  'comp1': _Comp2.default,
-  'comp2': _Comp4.default
+  'comp0': _Comp2.default,
+  'comp1': _Comp4.default,
+  'comp2': _Comp6.default,
+  'comp3': _Comp8.default,
+  'comp4': _Comp10.default,
+  'comp5': _Comp12.default,
+  'comp6': _Comp14.default,
+  'comp7': _Comp16.default,
+  'comp8': _Comp18.default,
+  'comp9': _Comp20.default
 };
 
 var MultiComp = function (_Component) {
@@ -323,16 +392,28 @@ var MultiComp = function (_Component) {
   }
 
   _createClass(MultiComp, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+    key: 'load',
+    value: function load(name) {
       var _this2 = this;
 
-      var lazy = LAZY_COMPONENTS[this.props.name];
+      var lazy = LAZY_COMPONENTS[name];
       if (lazy) {
         lazy(function (loaded) {
           var Component = loaded.default;
           _this2.setState({ component: _react2.default.createElement(Component, _this2.props) });
         });
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.load(this.props.name);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      if (nextProps.name !== this.props.name) {
+        this.load(nextProps.name);
       }
     }
   }, {
@@ -375,8 +456,8 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
-	__webpack_require__.e/* require.ensure */(1).then((function(require) {
-		cb(__webpack_require__(8));
+	__webpack_require__.e/* require.ensure */(9).then((function(require) {
+		cb(__webpack_require__(16));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
@@ -385,8 +466,88 @@ module.exports = function(cb) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(8).then((function(require) {
+		cb(__webpack_require__(17));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(7).then((function(require) {
+		cb(__webpack_require__(18));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(6).then((function(require) {
+		cb(__webpack_require__(19));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(5).then((function(require) {
+		cb(__webpack_require__(20));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(4).then((function(require) {
+		cb(__webpack_require__(21));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(3).then((function(require) {
+		cb(__webpack_require__(22));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(2).then((function(require) {
+		cb(__webpack_require__(23));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
+	__webpack_require__.e/* require.ensure */(1).then((function(require) {
+		cb(__webpack_require__(24));
+	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+}
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = function(cb) {
 	__webpack_require__.e/* require.ensure */(0).then((function(require) {
-		cb(__webpack_require__(9));
+		cb(__webpack_require__(25));
 	}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 }
 
